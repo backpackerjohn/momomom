@@ -1,0 +1,95 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./data/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    {
+      pattern: /bg-(task-yellow|task-pink|task-green|task-gray|accent-primary)/,
+    },
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'brand-bg': '#fbfaf9',
+        'brand-header': '#f7f5f2',
+        'dark-primary': '#2c2e3b',
+        'dark-secondary': '#3a3d4a',
+        'light-primary': '#dad6cd',
+        'light-secondary': '#e8e5dd',
+        'secondary-primary': '#adc2c5',
+        'secondary-secondary': '#b9cfd1',
+        'accent-primary': '#e57452',
+        'accent-secondary': '#f08a6d',
+        'accent-text': '#e88464',
+        'text-on-dark': {
+          DEFAULT: '#e5e7eb', // gray-200
+          muted: '#9ca3af', // gray-400
+          light: '#d1d5db', // gray-300
+        },
+        'text-on-light': {
+          DEFAULT: '#6b7280', // gray-600
+          strong: '#111827', // gray-900
+          muted: '#374151', // gray-700
+          primary: '#2c2e3b',
+        },
+        // New colors for the task board
+        'task-yellow': '#fef8e7',
+        'task-pink': '#feebee',
+        'task-green': '#edf7ed',
+        'task-gray': '#eef2f6',
+        'sidebar-icon-bg': '#e8e5dd',
+        'dark-text': '#4a4a4a',
+      },
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseGlow: {
+          '0%, 100%': { 
+            'box-shadow': '0 0 0 0 rgba(240, 138, 109, 0)', // accent-secondary at 0 opacity
+            'border-color': '#3a3d4a' // dark-secondary
+          },
+          '50%': { 
+            'box-shadow': '0 0 20px 4px rgba(240, 138, 109, 0.4)', // accent-secondary with glow
+            'border-color': '#f08a6d' // accent-secondary
+          }
+        },
+        pulseAura: {
+          '0%, 100%': { 'box-shadow': '0 0 35px 10px rgba(229, 116, 82, 0.2), inset 0 0 15px 5px rgba(44, 46, 59, 0.8)' },
+          '50%': { 'box-shadow': '0 0 70px 25px rgba(229, 116, 82, 0.4), inset 0 0 25px 10px rgba(44, 46, 59, 1)' },
+        },
+        neuralScroll: {
+          '0%': { 'background-position': '0% 0%' },
+          '100%': { 'background-position': '-200px -200px' },
+        },
+        bounce: {
+          '0%, 100%': {
+            transform: 'translateY(-25%)',
+            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+          }
+        }
+      },
+      animation: {
+        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+        'pulse-aura': 'pulseAura 2.5s ease-in-out infinite',
+        'neural-scroll-fast': 'neuralScroll 8s linear infinite',
+        'neural-scroll-slow': 'neuralScroll 20s linear infinite reverse',
+        'bounce': 'bounce 1s infinite',
+      },
+    },
+  },
+  plugins: [],
+};
